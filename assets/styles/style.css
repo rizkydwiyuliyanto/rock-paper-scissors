@@ -1,0 +1,638 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+:root {
+  --scisscor_background_image: linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paper_background_image: linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock_bakground_image: linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --lizard_background_image: linear-gradient(to right, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --cyan_background_image: linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --dark_text: hsl(229, 25%, 31%);
+  --score_text: hsl(229, 64%, 46%);
+  --header_outline: hsl(217, 16%, 45%);
+  --background_image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --size_hand_sign: 125px;
+  --size_hand_sign_result: 260px;
+  --size_hand_sign_image_result: 70px;
+  --outer: 570px;
+  --middle: 470px;
+  --inner: 370px;
+}
+@media screen and (max-width: 1023px) {
+  :root {
+    --size_hand_sign: 108px;
+    --size_hand_sign_result: 120px;
+    --size_hand_sign_image_result: 40px;
+    --outer: 220px;
+    --middle: 180px;
+    --inner: 150px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: var(--background_image);
+}
+
+.parent {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Barlow Semi Condensed";
+  color: #F4F4F4;
+  padding: 1.4em 0;
+}
+.parent .content {
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.parent .content .scores {
+  width: 100%;
+  display: flex;
+  padding: 0.8em;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 25;
+  border: 2px solid #4A5A74;
+  border-radius: 10px;
+}
+.parent .content .scores div {
+  display: flex;
+}
+.parent .content .scores div:first-child img {
+  width: 70px;
+}
+.parent .content .scores div:last-child {
+  width: 110px;
+  border-radius: 4px;
+  height: 80px;
+  background-color: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.parent .content .scores div:last-child span {
+  line-height: 1;
+  color: var(--header_outline);
+}
+.parent .content .scores div:last-child span:first-child {
+  letter-spacing: 1.5px;
+  font-size: 14px;
+}
+.parent .content .scores div:last-child span:last-child {
+  font-weight: 700;
+  font-size: 47px;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .scores {
+    position: absolute;
+  }
+}
+.parent .content .hand-sign {
+  position: relative;
+}
+.parent .content .hand-sign .triangle {
+  width: 260px;
+  height: 210px;
+}
+.parent .content .hand-sign #paper {
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  width: var(--size_hand_sign);
+  height: var(--size_hand_sign);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--paper_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .hand-sign #paper img {
+  position: relative;
+  width: 40px;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .hand-sign #paper {
+    right: -40px;
+  }
+}
+.parent .content .hand-sign #scissors {
+  position: absolute;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  cursor: pointer;
+  width: var(--size_hand_sign);
+  height: var(--size_hand_sign);
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--scisscor_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .hand-sign #scissors img {
+  position: relative;
+  width: 40px;
+}
+.parent .content .hand-sign #spock {
+  position: absolute;
+  top: 20px;
+  left: -50px;
+  cursor: pointer;
+  width: var(--size_hand_sign);
+  height: var(--size_hand_sign);
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--cyan_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .hand-sign #spock img {
+  position: relative;
+  width: 40px;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .hand-sign #spock {
+    left: -40px;
+  }
+}
+.parent .content .hand-sign #rock {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  right: -70px;
+  top: 100%;
+  width: var(--size_hand_sign);
+  height: var(--size_hand_sign);
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--rock_bakground_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .hand-sign #rock img {
+  position: relative;
+  width: 40px;
+}
+.parent .content .hand-sign #lizard {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  left: 50px;
+  top: 100%;
+  width: var(--size_hand_sign);
+  height: var(--size_hand_sign);
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--lizard_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .hand-sign #lizard img {
+  position: relative;
+  width: 40px;
+}
+.parent .content .hand-sign .bg-white {
+  background-color: #F4F4F4;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  border-radius: 50%;
+}
+.parent .content .result {
+  display: none;
+  border: 1px solid unset;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 340px;
+}
+.parent .content .result .circle3x {
+  position: absolute;
+  width: var(--outer);
+  height: var(--outer);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: #1E2949;
+  border-radius: 50%;
+}
+.parent .content .result .circle3x::before {
+  content: "";
+  width: var(--middle);
+  height: var(--middle);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: #253453;
+}
+.parent .content .result .circle3x::after {
+  content: "";
+  width: var(--inner);
+  height: var(--inner);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: #2B3858;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result .circle3x {
+    top: 90px;
+  }
+}
+.parent .content .result #picked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 200px;
+  height: 100%;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result #picked {
+    justify-content: start;
+    height: 200px;
+    width: 45%;
+  }
+  .parent .content .result #picked::before {
+    content: "You picked";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    color: white;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    z-index: 112;
+  }
+}
+.parent .content .result #picked #sign_picked {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result #picked #sign_picked {
+    top: 90px;
+  }
+}
+.parent .content .result .result-and-playagain {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 105px;
+  align-self: center;
+  position: static;
+  z-index: 25;
+}
+.parent .content .result .result-and-playagain #result-text {
+  font-size: 45px;
+  letter-spacing: 1.2px;
+  height: 72px;
+}
+.parent .content .result .result-and-playagain .btn-playagain {
+  width: 100%;
+  display: flex;
+  padding: 0.8em 0;
+  justify-content: center;
+  background-color: #F4F4F4;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #4A5A74;
+}
+.parent .content .result .result-and-playagain .btn-playagain span {
+  letter-spacing: 1.5px;
+  color: black;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result .result-and-playagain {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: -40px;
+    left: 50%;
+    width: 200px;
+  }
+}
+.parent .content .result #house-picked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 200px;
+  height: 100%;
+}
+.parent .content .result #house-picked #sign_house_picked {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result #house-picked #sign_house_picked {
+    top: 90px;
+  }
+}
+.parent .content .result #house-picked .bg-dark {
+  position: absolute;
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: block;
+}
+.parent .content .result #house-picked .bg-dark::before {
+  content: "";
+  position: absolute;
+  width: 77%;
+  height: 77%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background-color: var(--header_outline);
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result #house-picked {
+    justify-content: start;
+    height: 200px;
+    width: 45%;
+  }
+  .parent .content .result #house-picked::before {
+    content: "House picked";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    z-index: 112;
+  }
+}
+.parent .content .result .host-text {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 42;
+  font-size: 20px;
+  color: #EDF4FD;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result .host-text {
+    display: none;
+  }
+}
+.parent .content .result img {
+  position: relative;
+  width: var(--size_hand_sign_image_result);
+  z-index: 20;
+}
+.parent .content .result .paper {
+  cursor: pointer;
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--paper_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.parent .content .result .scissors {
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--scisscor_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .result .rock {
+  cursor: pointer;
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--rock_bakground_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .result .spock {
+  cursor: pointer;
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--cyan_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .result .lizard {
+  cursor: pointer;
+  width: var(--size_hand_sign_result);
+  height: var(--size_hand_sign_result);
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  background-image: var(--lizard_background_image);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.parent .content .result .bg-white {
+  background-color: #F4F4F4;
+  width: 77%;
+  height: 77%;
+  position: absolute;
+  border-radius: 50%;
+}
+@media screen and (max-width: 1023px) {
+  .parent .content .result {
+    height: 60%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .parent .content {
+    width: 90%;
+  }
+}
+.parent .rules-btn {
+  width: 100px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 2.5px solid #4A5A74;
+  border-radius: 10px;
+  padding: 0.4em 0;
+  z-index: 25;
+  text-align: center;
+  cursor: pointer;
+}
+.parent .rules-btn:active {
+  background-color: #F4F4F4;
+  color: var(--score_text);
+}
+@media screen and (max-width: 1023px) {
+  .parent .rules-btn {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 20px;
+    z-index: 5;
+  }
+}
+.parent .modal {
+  background-color: rgba(0, 0, 0, 0.441);
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 250;
+}
+.parent .modal .rules {
+  background-color: white;
+  width: 360px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  padding: 1.5em;
+  justify-content: space-between;
+  position: relative;
+}
+.parent .modal .rules .rules-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.parent .modal .rules .rules-header span {
+  font-weight: 600;
+  font-size: 24px;
+  color: hsl(214, 47%, 23%);
+}
+@media screen and (max-width: 1023px) {
+  .parent .modal .rules .rules-header span {
+    position: absolute;
+    font-size: 30px;
+    top: 70px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+  }
+}
+.parent .modal .rules .rules-header img {
+  cursor: pointer;
+}
+@media screen and (max-width: 1023px) {
+  .parent .modal .rules .rules-header img {
+    position: absolute;
+    bottom: 40px;
+    width: 25px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+  }
+}
+.parent .modal .rules .rules-image {
+  width: 100%;
+  text-align: center;
+}
+.parent .modal .rules .rules-image img {
+  max-width: 100%;
+}
+@media screen and (max-width: 1023px) {
+  .parent .modal .rules {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+.start-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-between-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.position-relative {
+  position: relative;
+}/*# sourceMappingURL=style.css.map */
